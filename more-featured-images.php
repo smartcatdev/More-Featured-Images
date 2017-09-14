@@ -66,9 +66,11 @@ register_activation_hook( __FILE__, 'mfi\activate' );
 
 function register_scripts() {
 
-//    wp_enqueue_media();
+        wp_enqueue_style( 'mfi-common', asset( 'css/common.css' ), null, VERSION );
+        
+        
 	wp_enqueue_script( 'wp_media_uploader', asset( 'js/wp_media_uploader.js' ), array( 'jquery' ), VERSION );
-	wp_enqueue_script( 'mfi_admin_script', asset( 'js/script.js' ), array( 'jquery', 'wp_media_uploader' ), VERSION );
+	wp_enqueue_script( 'mfi_admin_script', asset( 'js/script.js' ), array( 'jquery', 'jquery-ui-sortable', 'wp_media_uploader' ), VERSION );
 
 }
 

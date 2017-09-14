@@ -82,28 +82,44 @@ class mfi_metabox {
             wp_nonce_field( 'mfi_images_nonce_action', 'mfi_images_nonce' );
 
             // Retrieve an existing value from the database.
-            $mfi_image = get_post_meta( $post->ID, 'mfi-image', true );
-          
-            // Set default values.
-            if( empty( $mfi_image ) ) $mfi_image = '';
-
+            $mfi_images = get_post_meta( $post->ID, 'mfi_image', true );
+            var_dump($mfi_images);
+            
             // Form fields.
             echo '<table class="form-table">';
+           
+            echo '  <div class="form-group smartcat-uploader">
+                
+                        <label for="logo">Selected Logo</label>';
+            
+            
+                echo    '<div>';
+                echo        '<ul id="mfi_images">';
 
-            echo    '<div class="form-group smartcat-uploader">
-                           <label for="logo">Selected Logo</label>
-                           <input type="text" id="mfi-image" name="mfi-image" >
-                    </div>';
+                            foreach ( $mfi_images as $mfi_image ){
+
+                                echo '<li class="mfi_image_item" >
+                                        <input type="hidden" name="mfi_image[]" value="' . $mfi_image . '" /> 
+                                        <img src = "' . $mfi_image . '" style="padding: 5px; heigth:auto; width:200px;  />
+                                        <span class="remove_mfi_image">Close</span>
+                                </li>';
+
+                            }
+                echo        '</ul>';
+                echo '</div>';
+                            
+            echo '</div>';
+
+            
 
             echo '</table>';
         }
-
+                
 	public function save_metabox( $post_id, $post ) {       
             
 		$nonce_name   = isset( $_POST['mfi_images_nonce'] ) ? $_POST['mfi_images_nonce'] : '';
 		$nonce_action = 'mfi_images_nonce_action';
 
-                
 		// Check if a nonce is set.
 		if ( ! isset( $nonce_name ) )
 			return;
@@ -113,10 +129,10 @@ class mfi_metabox {
 			return;
                 
 		// Sanitize user input.
-                $mfi_image_new = isset( $_POST[ 'mfi_image' ] ) ? esc_url_raw( $_POST[ 'mfi_image' ] ): '';
+                $mfi_images_new = isset( $_POST[ 'mfi_images' ] ) ?  $_POST[ 'mfi_images' ] : '';
 
 		// Update the meta field in the database.
-                update_post_meta( $post_id, 'mfi_image', $mfi_image_new );
+                update_post_meta( $post_id, 'mfi_images', $mfi_images_new );
 
 	}
 
