@@ -1,0 +1,66 @@
+span.remove_mfi_image {
+    position: absolute;
+    right: -6px;
+    top: -5px;
+    background: red;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 2px 7px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+}
+span.remove_mfi_image:hover {
+    opacity: 1;
+}
+.form-group.smartcat-uploader a {
+    text-decoration: none;
+}
+.form-group.smartcat-uploader {
+    width: 23%;
+    margin: 10px 1%;
+    background-color: #dedede;
+    box-shadow: inset 0px 0px 20px 5px #d0cfcf;
+    -webkit-box-shadow: inset 0px 0px 20px 5px #d0cfcf;
+    display: block;
+    float: left;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+#mfi_images {
+    display: block;
+}
+.mfi_image_item {
+    display: block;
+    position: relative;
+    float: left;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color: #eee;
+    width: 23%;
+    margin: 10px 1%;
+    height: 200px;
+}
+.ui-sortable-helper {
+    box-shadow: 17px 17px 20px #ccc;
+    -webkit-box-shadow: 17px 17px 20px #ccc;
+    transform: rotate(3deg) scale(1.02);
+    -webkit-transform: rotate(3deg) scale(1.02);
+}
+.form-group.smartcat-uploader li {
+    margin-bottom: 0; 
+}
+@media screen and ( max-width:767px ) {
+    .mfi_image_item {
+        width: 48%;
+    }
+    .form-group.smartcat-uploader {
+        width: 48%;
+    }
+}

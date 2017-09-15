@@ -82,35 +82,33 @@ class mfi_metabox {
             wp_nonce_field( 'mfi_images_nonce_action', 'mfi_images_nonce' );
 
             // Retrieve an existing value from the database.
-            $mfi_images = get_post_meta( $post->ID, 'mfi_image', true );
-            var_dump($mfi_images);
+            $mfi_image = get_post_meta( $post->ID, 'mfi_image', true );
             
-            // Form fields.
+            // Set default values.
+            if( empty( $mfi_image ) ) $mfi_image = '';
+            
+            // Form fields. 
             echo '<table class="form-table">';
            
-            echo '  <div class="form-group smartcat-uploader">
+            echo '  <div class="form-group smartcat-uploader">';
                 
-                        <label for="logo">Selected Logo</label>';
-            
-            
-                echo    '<div>';
-                echo        '<ul id="mfi_images">';
+               
+                            
+            echo '</div>';
 
-                            foreach ( $mfi_images as $mfi_image ){
+             echo    '<div>';
+                echo    '<ul id="mfi_images">';
 
-                                echo '<li class="mfi_image_item" >
-                                        <input type="hidden" name="mfi_image[]" value="' . $mfi_image . '" /> 
-                                        <img src = "' . $mfi_image . '" style="padding: 5px; heigth:auto; width:200px;  />
-                                        <span class="remove_mfi_image">Close</span>
+                            foreach ( $mfi_image as $single_mfi_image ){
+
+                                echo '<li class="mfi_image_item" style="background-image:url(' . $single_mfi_image . ')" >
+                                    <input type="hidden" name="mfi_image[]" value="' . $single_mfi_image . '" />
+                                    <span class="remove_mfi_image">X</span>
                                 </li>';
 
                             }
                 echo        '</ul>';
                 echo '</div>';
-                            
-            echo '</div>';
-
-            
 
             echo '</table>';
         }
@@ -119,7 +117,7 @@ class mfi_metabox {
             
 		$nonce_name   = isset( $_POST['mfi_images_nonce'] ) ? $_POST['mfi_images_nonce'] : '';
 		$nonce_action = 'mfi_images_nonce_action';
-
+                
 		// Check if a nonce is set.
 		if ( ! isset( $nonce_name ) )
 			return;
@@ -128,11 +126,14 @@ class mfi_metabox {
 		if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) )
 			return;
                 
+//                var_dump($_POST["mfi_image"]);
+//                die();
+                
 		// Sanitize user input.
-                $mfi_images_new = isset( $_POST[ 'mfi_images' ] ) ?  $_POST[ 'mfi_images' ] : '';
+                $mfi_image_new = isset( $_POST[ 'mfi_image' ] ) ?  $_POST[ 'mfi_image' ] : '';
 
 		// Update the meta field in the database.
-                update_post_meta( $post_id, 'mfi_images', $mfi_images_new );
+                update_post_meta( $post_id, 'mfi_image', $mfi_image_new );
 
 	}
 

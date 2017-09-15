@@ -15,7 +15,7 @@
             multiple : true, // Allow the user to select multiple images
             buttonText : 'Upload image', // The text of the upload button
             buttonClass : '.smartcat-upload', // the class of the upload button
-            previewSize : '150px', // The preview image size
+            previewSize : '200px', // The preview image size
             modal : false, // is the upload button within a bootstrap modal ?
             buttonStyle : { // style the button
                 color : '#fff',
@@ -27,11 +27,11 @@
         }, options );
         
         
-        $( settings.target ).append( '<a href="#" class="' + settings.buttonClass.replace('.','') + '">' + settings.buttonText + '</a>' );
+        $( ".smartcat-uploader" ).append( '<li class="not-sort">\n\
+                                        <a href="#" class="' + settings.buttonClass.replace('.','') + '">' + settings.buttonText + '</a>\n\
+                                    </li>' );
         
-        if ( !$( "mfi_images" ).length ) {
-            $( settings.target ).append('<div><ul id="mfi_images"></ul></div>');
-        }
+        
         $( settings.buttonClass ).css( settings.buttonStyle );
         
         
@@ -54,10 +54,9 @@
                 for ( var i = 0; i < attachment.length; i++ ) {
                                         
                     $( "#mfi_images" ).append('\
-                        <li class="mfi_image_item" >\n\
-                                <input type="hidden" name="mfi_image[]" value="' + attachment[i].url + '" /> \n\
-                                <img src = "' + attachment[i].url + '" style="padding: 5px; heigth:auto; width:' + settings.previewSize + '" />\n\
-                                <span class="remove_mfi_image">Close</span>\n\
+                        <li class="mfi_image_item" style="background-image: url(' + attachment[i].url + ');" >\n\
+                            <input type="hidden" name="mfi_image[]" value="' + attachment[i].url + '" /> \n\
+                            <span class="remove_mfi_image">X</span>\n\
                         </li>');                    
                                         
                 }

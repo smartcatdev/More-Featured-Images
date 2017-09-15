@@ -1,0 +1,22 @@
+#mfi_images {
+    display: block;
+}
+.mfi_image_item {
+    display: block;
+    position: relative;
+    float: left;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color: #eee;
+    width: 23%;
+    margin: 10px 1%;
+    height: 200px;
+}
+@media screen and ( max-width:767px ) {
+    .mfi_image_item {
+        width: 48%;
+    }
+    .form-group.smartcat-uploader {
+        width: 48%;
+    }
+}

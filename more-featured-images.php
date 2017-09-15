@@ -26,6 +26,7 @@ function init() {
     if ( PHP_VERSION >= Defaults::MIN_PHP_VERSION ) {
 
          include_once dirname( __FILE__ ) . '/includes/functions.php';
+         include_once dirname( __FILE__ ) . '/includes/images-view.php';
         
         
     } else {
@@ -64,7 +65,7 @@ function activate() {
 
 register_activation_hook( __FILE__, 'mfi\activate' );
 
-function register_scripts() {
+function register_admin_scripts() {
 
         wp_enqueue_style( 'mfi-common', asset( 'css/common.css' ), null, VERSION );
         
@@ -74,7 +75,16 @@ function register_scripts() {
 
 }
 
-add_action( 'admin_enqueue_scripts', 'mfi\register_scripts' );
+add_action( 'admin_enqueue_scripts', 'mfi\register_admin_scripts' );
+
+function register_scripts() {
+
+	wp_enqueue_style( 'mfi-style', asset( 'css/style.css' ), null, VERSION );
+
+}
+
+add_action( 'init', 'mfi\register_scripts' );
+
 
 /**
  * Get the URL of an asset from the assets folder.
@@ -92,5 +102,27 @@ function asset( $path = '', $url = true ) {
     }
 
     return $file . 'assets/' . ltrim( $path, '/' );
+
+}
+/**
+ * Get the path of a template file.
+ *
+ * @param  string      $template The file name in the format of file.php.
+ * @return bool|string           False if the file does not exist, the path if it does.
+ */
+function template_path( $template ) {
+
+    $template = trim( $template, '/' );
+    $template = rtrim( $template, '.php' );
+
+    $base = trailingslashit( dirname( __FILE__ ) . '/templates' );
+
+    $file = $base . $template . '.php';
+
+    if( file_exists( $file ) ) {
+        return $file;
+    }
+
+    return false;
 
 }
