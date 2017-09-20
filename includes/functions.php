@@ -85,7 +85,7 @@ class mfi_metabox {
             $mfi_image = get_post_meta( $post->ID, 'mfi_image', true );
             
             // Set default values.
-            if( empty( $mfi_image ) ) $mfi_image = '';
+            if( empty( $mfi_image ) ) $mfi_image = array();
             
             // Form fields. 
             echo '<table class="form-table">';
@@ -96,6 +96,7 @@ class mfi_metabox {
                             
             echo '</div>';
 
+            
              echo    '<div>';
                 echo    '<ul id="mfi_images">';
 
