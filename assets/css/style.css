@@ -12,11 +12,25 @@
     margin: 10px 1%;
     height: 200px;
 }
+@media screen and ( max-width:992px ) {
+    .mfi_image_item.grid {
+        width: 48%;
+    }
+    .mfi_image_item {
+        width: 48% !important;
+    }
+    .form-group.smartcat-uploader {
+        width: 48% !important;
+    }
+}
 @media screen and ( max-width:767px ) {
     .mfi_image_item {
         width: 48%;
     }
     .form-group.smartcat-uploader {
         width: 48%;
+    }
+    .mfi_image_item.grid {
+        width: 98% !important;
     }
 }

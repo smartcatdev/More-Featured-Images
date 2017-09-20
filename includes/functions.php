@@ -60,19 +60,19 @@ class mfi_metabox {
 
 	public function add_metabox() {
 
-            $all_post_types = get_all_post_types();
+            $checked_posts = get_option( Options::ACTIVE_POST_TYPES );
             
-            foreach ( $all_post_types as $post_type ) {
+            foreach ( $checked_posts as $checked_post ) {             
                 
                 add_meta_box(
                     'mfi_image_upload',
                     __( 'Upload Image', 'mfi' ),
                     array( $this, 'render_mfi_metabox' ),
-                    $post_type,
+                    $checked_post,
                     'normal',
                     'default'
-                ); 
-                                
+                );
+
             }  
             
 	}
@@ -90,7 +90,7 @@ class mfi_metabox {
             // Form fields. 
             echo '<table class="form-table">';
            
-            echo '  <div class="form-group smartcat-uploader">';
+            echo '<div class="form-group smartcat-uploader">';
                 
                
                             
@@ -99,7 +99,7 @@ class mfi_metabox {
              echo    '<div>';
                 echo    '<ul id="mfi_images">';
 
-                            foreach ( $mfi_image as $single_mfi_image ){
+                            foreach ( $mfi_image as $single_mfi_image ) {
 
                                 echo '<li class="mfi_image_item" style="background-image:url(' . $single_mfi_image . ')" >
                                     <input type="hidden" name="mfi_image[]" value="' . $single_mfi_image . '" />
@@ -122,12 +122,9 @@ class mfi_metabox {
 		if ( ! isset( $nonce_name ) )
 			return;
 
-//		 Check if a nonce is valid.
+                // Check if a nonce is valid.
 		if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) )
 			return;
-                
-//                var_dump($_POST["mfi_image"]);
-//                die();
                 
 		// Sanitize user input.
                 $mfi_image_new = isset( $_POST[ 'mfi_image' ] ) ?  $_POST[ 'mfi_image' ] : '';

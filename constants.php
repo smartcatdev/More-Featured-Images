@@ -11,6 +11,8 @@ interface Options {
      */
     const MIN_PHP_VERSION = 'min-php-version';
     
+    const ACTIVE_POST_TYPES = 'mfi_active_post_types';
+    
 }
 interface Defaults {
     
@@ -18,6 +20,8 @@ interface Defaults {
      * @since 1.0.0
      */
     const MIN_PHP_VERSION = 5.4;
+    
+    
     
 }
 

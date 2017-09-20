@@ -25,10 +25,11 @@ function init() {
 
     if ( PHP_VERSION >= Defaults::MIN_PHP_VERSION ) {
 
-         include_once dirname( __FILE__ ) . '/includes/functions.php';
-         include_once dirname( __FILE__ ) . '/includes/images-view.php';
-        
-        
+        include_once dirname( __FILE__ ) . '/includes/functions.php';
+        include_once dirname( __FILE__ ) . '/includes/settings.php';
+        include_once dirname( __FILE__ ) . '/includes/images_view.php';
+        include_once dirname( __FILE__ ) . '/includes/public_functions.php';
+                
     } else {
         make_admin_notice( __( 'Your version of PHP (' . PHP_VERSION . ') does not meet the minimum required version (5.4+) to run More featured images' ) );
     }

@@ -48,10 +48,10 @@ span.remove_mfi_image:hover {
     height: 200px;
 }
 .ui-sortable-helper {
-    box-shadow: 17px 17px 20px #ccc;
-    -webkit-box-shadow: 17px 17px 20px #ccc;
-    transform: rotate(3deg) scale(1.02);
-    -webkit-transform: rotate(3deg) scale(1.02);
+    box-shadow: 17px 17px 20px #838383;
+    -webkit-box-shadow: 17px 17px 20px #838383;
+    transform: rotate(3deg) scale(1.07, 1.07);
+    -webkit-transform: rotate(3deg) scale(1.07, 1.07);
 }
 .form-group.smartcat-uploader li {
     margin-bottom: 0; 
