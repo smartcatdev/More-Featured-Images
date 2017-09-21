@@ -54,7 +54,8 @@ span.remove_mfi_image:hover {
     -webkit-transform: rotate(3deg) scale(1.07, 1.07);
 }
 .form-group.smartcat-uploader li {
-    margin-bottom: 0; 
+    margin-bottom: 0;
+    line-height: 42px;
 }
 @media screen and ( max-width:767px ) {
     .mfi_image_item {

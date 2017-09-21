@@ -18,9 +18,10 @@ namespace mfi;
  * @since 1.0.0
  */
 function get_all_post_types(){
-        $args = array(
-       'public'   => true,
-       '_builtin' => false
+    
+    $args = array(
+        'public'   => true,
+        '_builtin' => false
     );
 
     $output = 'names'; // names or objects, note names is the default
@@ -28,14 +29,16 @@ function get_all_post_types(){
 
     $post_types = get_post_types( $args, $output, $operator ); 
 
-    $all_post_types = array('page', 'post');
+    $all_post_types = array( 'page', 'post' );
     
     foreach ( $post_types  as $post_type ) {
 
-        array_push($all_post_types, $post_type);
+        array_push( $all_post_types, $post_type );
         
     }
+    
     return $all_post_types;
+    
 }
 
 add_action( 'init', 'mfi\get_all_post_types', 0, 99 );
@@ -91,13 +94,11 @@ class mfi_metabox {
             echo '<table class="form-table">';
            
             echo '<div class="form-group smartcat-uploader">';
-                
-               
-                            
+                                            
             echo '</div>';
-
             
              echo    '<div>';
+             
                 echo    '<ul id="mfi_images">';
 
                             foreach ( $mfi_image as $single_mfi_image ) {
@@ -108,7 +109,9 @@ class mfi_metabox {
                                 </li>';
 
                             }
+                            
                 echo        '</ul>';
+                
                 echo '</div>';
 
             echo '</table>';
@@ -116,7 +119,7 @@ class mfi_metabox {
                 
 	public function save_metabox( $post_id, $post ) {       
             
-		$nonce_name   = isset( $_POST['mfi_images_nonce'] ) ? $_POST['mfi_images_nonce'] : '';
+		$nonce_name   = isset( $_POST[ 'mfi_images_nonce' ] ) ? $_POST[ 'mfi_images_nonce' ] : '';
 		$nonce_action = 'mfi_images_nonce_action';
                 
 		// Check if a nonce is set.

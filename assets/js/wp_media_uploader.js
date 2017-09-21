@@ -5,6 +5,7 @@
  * 
  */
 ( function( $ ) {
+    
     $.wpMediaUploader = function( options ) {
         
         var settings = $.extend({
@@ -21,24 +22,21 @@
                 color : '#fff',
                 background : '#3bafda',
                 fontSize : '16px',                
-                padding : '10px 15px',                
+                padding : '10px 10px',                
             },
             
         }, options );
-        
-        
+                
         $( ".smartcat-uploader" ).append( '<li class="not-sort">\n\
-                                        <a href="#" class="' + settings.buttonClass.replace('.','') + '">' + settings.buttonText + '</a>\n\
-                                    </li>' );
-        
-        
+                                        <a href="#" class="' + settings.buttonClass.replace( '.', '' ) + '">' + settings.buttonText + '</a>\n\
+                                           </li>' );
+                
         $( settings.buttonClass ).css( settings.buttonStyle );
-        
-        
-        $('body').on('click', settings.buttonClass, function(e) {
+                
+        $( 'body' ).on( 'click', settings.buttonClass, function( e ) {
             
             e.preventDefault();
-            var selector = $(this).parent( settings.target );
+            var selector = $( this ).parent( settings.target );
             var custom_uploader = wp.media({
                 title: settings.uploaderTitle,
                 button: {
@@ -47,9 +45,9 @@
                 multiple: settings.multiple
             })
             
-            .on('select', function() {
+            .on( 'select', function() {
                 
-                var attachment = custom_uploader.state().get('selection').toJSON();                           
+                var attachment = custom_uploader.state().get( 'selection' ).toJSON();                           
 
                 for ( var i = 0; i < attachment.length; i++ ) {
                                         
@@ -62,12 +60,13 @@
                 }
                 
                 if( settings.modal ) {
-                    $('.modal').css( 'overflowY', 'auto');
+                    $( '.modal' ).css( 'overflowY', 'auto' );
                 }
+                
             })
             .open();
         });
-        
-        
+                
     };
-})(jQuery);
+    
+})( jQuery );

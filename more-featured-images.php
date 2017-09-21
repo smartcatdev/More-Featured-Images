@@ -31,25 +31,24 @@ function init() {
         include_once dirname( __FILE__ ) . '/includes/public_functions.php';
                 
     } else {
+        
         make_admin_notice( __( 'Your version of PHP (' . PHP_VERSION . ') does not meet the minimum required version (5.4+) to run More featured images' ) );
+        
     }
 
-
-    
-    
 }
 
 add_action( 'plugins_loaded', 'mfi\init' );
 
 function make_admin_notice( $message, $type = 'error', $dismissible = true ) {
 
-        add_action( 'admin_notices', function () use ( $message, $type, $dismissible ) {
+    add_action( 'admin_notices', function () use ( $message, $type, $dismissible ) {
 
-            echo '<div class="notice notice-' . esc_attr( $type ) . ' ' . ( $dismissible ? 'is-dismissible' : '' ) . '">';
-            echo '<p>' . $message . '</p>';
-            echo '</div>';
+        echo '<div class="notice notice-' . esc_attr( $type ) . ' ' . ( $dismissible ? 'is-dismissible' : '' ) . '">';
+        echo '<p>' . $message . '</p>';
+        echo '</div>';
 
-        } );
+    } );
 
 }
 
@@ -69,8 +68,7 @@ register_activation_hook( __FILE__, 'mfi\activate' );
 function register_admin_scripts() {
 
         wp_enqueue_style( 'mfi-common', asset( 'css/common.css' ), null, VERSION );
-        
-        
+                
 	wp_enqueue_script( 'wp_media_uploader', asset( 'js/wp_media_uploader.js' ), array( 'jquery' ), VERSION );
 	wp_enqueue_script( 'mfi_admin_script', asset( 'js/script.js' ), array( 'jquery', 'jquery-ui-sortable', 'wp_media_uploader' ), VERSION );
 

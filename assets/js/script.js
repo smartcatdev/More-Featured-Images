@@ -14,19 +14,18 @@ jQuery( document ).ready( function ( $ ) {
             color : '#fff',
             background : '#3bafda',
             fontSize : '16px',                
-            padding : '10px 15px',                
+            padding : '10px 8px',                
         },
 
     });
     
-    $( "#mfi_images" ).sortable({
-        
-    });
+    $( "#mfi_images" ).sortable();
+    
     $( "#mfi_images" ).disableSelection();
     
     $( '#mfi_images' ).on( 'click', 'li.mfi_image_item .remove_mfi_image', function() {
        
-       $( this ).parent().hide('slow', function(){  $( this ).remove(); });
+       $( this ).parent().hide( 'slow', function(){  $( this ).remove(); });
        
     });
 

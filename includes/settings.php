@@ -1,11 +1,14 @@
 <?php
 
 namespace mfi;
+
 /**
  * Creates the options page under Settings in the dashboard
  */
 add_action( 'admin_menu', function(){
+    
     add_options_page( __( 'More featured images', 'mfi' ), __( 'More Featured Images', 'mfi' ), 'manage_options', 'mfi-settings', 'mfi\output_options_page' );
+    
 });
 
 function output_options_page() { ?>
@@ -31,15 +34,18 @@ function register_settings() {
         
     ) );
         
-    
 }
+
 add_action( 'init', 'mfi\register_settings' );
 
 function create_settings_sections() {
+    
     add_settings_section( 'mfi-settings', __( 'Select post types', 'mfi' ), '', 'mfi-settings' );
     
 }
+
 add_action( 'admin_init', 'mfi\create_settings_sections' );
+
 function add_settings_fields() {
     
         add_settings_field(
@@ -51,6 +57,7 @@ function add_settings_fields() {
         );
         
 }
+
 add_action( 'admin_init', 'mfi\add_settings_fields' );
 
 function render_checkbox_field() { ?>
@@ -80,26 +87,24 @@ function render_checkbox_field() { ?>
 
 function sanitize_active_post_types( $input ) {
     
-    if (is_array($input)) {
+    if ( is_array( $input ) ) {
         
         $all_types = get_all_post_types();        
         
-        foreach ($input as $single_input) {
+        foreach ( $input as $single_input ) {
             
-            if ( !in_array($single_input, $all_types) ) {
+            if ( !in_array( $single_input, $all_types ) ) {
                 
-                unset($input[$single_input]);
+                unset( $input[ $single_input ] );
                 
             }
             
         }
         
-
         return $input;
 
     }
-    
-   
+       
     return array();
     
 }

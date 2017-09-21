@@ -1,9 +1,6 @@
-<?php
+<?php namespace mfi; ?> 
 
-namespace mfi; 
-?> 
-
-    <?php $mfi_image = get_post_meta( get_the_ID(), 'mfi_image', true ); ?>
+<?php $mfi_image = get_post_meta( get_the_ID(), 'mfi_image', true ); ?>
 
 <?php if ( is_array( $mfi_image ) ) {?>
 
