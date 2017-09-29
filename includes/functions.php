@@ -69,7 +69,7 @@ class mfi_metabox {
                 
                 add_meta_box(
                     'mfi_image_upload',
-                    __( 'Upload Image', 'mfi' ),
+                    __( 'More Featured Images', 'mfi' ),
                     array( $this, 'render_mfi_metabox' ),
                     $checked_post,
                     'normal',
@@ -92,8 +92,10 @@ class mfi_metabox {
             
             // Form fields. 
             echo '<table class="form-table">';
+            
+            echo '<i class="metabox-information">To display your selected images use shortcode [featured-images]</i>';
            
-            echo '<div class="form-group smartcat-uploader">';
+            echo '<div class="form-group smartcat-multiple-uploader">';
                                             
             echo '</div>';
             

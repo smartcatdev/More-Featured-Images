@@ -4,6 +4,8 @@ namespace mfi;
 
 function do_shortcode_output( $atts ) {
   
+    ob_start();
+    
     $post_types = get_option( Options::ACTIVE_POST_TYPES );
     
     if ( in_array( get_post_type(), $post_types ) ) {
@@ -19,6 +21,8 @@ function do_shortcode_output( $atts ) {
         }
         
     }   
+    
+    return ob_get_clean();
     
 }
 

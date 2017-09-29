@@ -19,7 +19,7 @@
     .mfi_image_item {
         width: 48% !important;
     }
-    .form-group.smartcat-uploader {
+    .form-group.smartcat-multiple-uploader {
         width: 48% !important;
     }
 }
@@ -27,7 +27,7 @@
     .mfi_image_item {
         width: 48%;
     }
-    .form-group.smartcat-uploader {
+    .form-group.smartcat-multiple-uploader {
         width: 48%;
     }
     .mfi_image_item.grid {

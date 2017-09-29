@@ -15,10 +15,10 @@ span.remove_mfi_image {
 span.remove_mfi_image:hover {
     opacity: 1;
 }
-.form-group.smartcat-uploader a {
+.form-group.smartcat-multiple-uploader a {
     text-decoration: none;
 }
-.form-group.smartcat-uploader {
+.form-group.smartcat-multiple-uploader {
     width: 23%;
     margin: 10px 1%;
     background-color: #dedede;
@@ -46,6 +46,7 @@ span.remove_mfi_image:hover {
     width: 23%;
     margin: 10px 1%;
     height: 200px;
+    cursor: move;
 }
 .ui-sortable-helper {
     box-shadow: 17px 17px 20px #838383;
@@ -53,15 +54,20 @@ span.remove_mfi_image:hover {
     transform: rotate(3deg) scale(1.07, 1.07);
     -webkit-transform: rotate(3deg) scale(1.07, 1.07);
 }
-.form-group.smartcat-uploader li {
+.form-group.smartcat-multiple-uploader li {
     margin-bottom: 0;
     line-height: 42px;
+}
+.metabox-information {
+    margin: 15px;
+    display: block;
+    text-align: center;
 }
 @media screen and ( max-width:767px ) {
     .mfi_image_item {
         width: 48%;
     }
-    .form-group.smartcat-uploader {
+    .form-group.smartcat-multiple-uploader {
         width: 48%;
     }
 }

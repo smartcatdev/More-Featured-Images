@@ -30,7 +30,7 @@ function register_settings() {
     register_setting( 'mfi-settings', Options::ACTIVE_POST_TYPES, array(
     'type'                  => 'string',
     'sanitize_callback'     => 'mfi\sanitize_active_post_types', //TODO make function to check if post types actually exist
-    'default'               => array()
+    'default'               => get_all_post_types()
         
     ) );
         
@@ -75,7 +75,7 @@ function render_checkbox_field() { ?>
             <input type="checkbox" 
                    value="<?php esc_attr_e($post_type); ?>"
                    name="<?php echo Options::ACTIVE_POST_TYPES ?>[]"
-                   <?php checked(true, in_array($post_type, $option), true)?> />
+                   <?php checked( true, in_array( $post_type, $option ), true )?> />
 
             <?php echo $post->labels->name; ?></label></br>
 
