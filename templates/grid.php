@@ -8,11 +8,12 @@
 
         <?php foreach ( $mfi_image as $single_mfi_image ){ ?>
 
-            <?php echo '<div class="mfi_image_item grid" style="background-image:url(' . $single_mfi_image . ')" >'; ?>
-                        </div>
-
+            <?php echo '<div class="mfi_image_item grid" style="background-image:url(' . $single_mfi_image . ')" ></div>'; ?>
+                        
         <?php } ?>
 
     </div>
+    
+    <div class="clear clearfix"></div>
 
 <?php }

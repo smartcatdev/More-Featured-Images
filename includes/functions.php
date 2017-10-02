@@ -90,10 +90,12 @@ class mfi_metabox {
             // Set default values.
             if( empty( $mfi_image ) ) $mfi_image = array();
             
+
             // Form fields. 
-            echo '<table class="form-table">';
             
-            echo '<i class="metabox-information">To display your selected images use shortcode [featured-images]</i>';
+            echo '<i class="metabox-information">To display your selected images, add the shortcode anywhere in your page <strong>[featured-images]</strong></i>';
+
+            echo '<table class="form-table">';
            
             echo '<div class="form-group smartcat-multiple-uploader">';
                                             
@@ -115,8 +117,13 @@ class mfi_metabox {
                 echo        '</ul>';
                 
                 echo '</div>';
-
+                
             echo '</table>';
+            
+            echo '<i class="metabox-information">Advanced Usage: You can also use function <strong>get_more_featured_images()</strong> from your PHP template file.</i>';
+            echo '<i class="metabox-information">If you don\'t want any styling, use <strong>[featured-images template="plain"]</strong> or <strong>get_more_featured_images( "plain" )</strong>.</i>';
+            
+            
         }
                 
 	public function save_metabox( $post_id, $post ) {       

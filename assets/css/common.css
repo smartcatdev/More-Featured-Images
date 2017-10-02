@@ -61,7 +61,6 @@ span.remove_mfi_image:hover {
 .metabox-information {
     margin: 15px;
     display: block;
-    text-align: center;
 }
 @media screen and ( max-width:767px ) {
     .mfi_image_item {
