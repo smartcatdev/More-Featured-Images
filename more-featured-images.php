@@ -1,8 +1,8 @@
 <?php
 /*
  * Plugin Name: More Featured Images
- * Plugin URI: https://smartcatdesign.net/downloads/more-featured-images/
- * Description: Select multiple images on all many post types
+ * Plugin URI: https://smartcatdesign.net/articles/add-extra-featured-images-wordpress-post-page-custom-post/
+ * Description: Adds more featured images to your Posts, Pages and Custom Post Types. Bulk upload, Drag & drop re-order.
  * Version: 1.0.0
  * Author: Smartcat
  * Author URI: https://smartcatdesign.net
