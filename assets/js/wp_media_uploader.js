@@ -6,7 +6,9 @@
  */
 ( function( $ ) {
     
-    $.wpMediaUploader = function( options ) {
+    $.mfiMediaUploader = function( options ) {
+        
+        console.log( 'wp_media_uploader.js' )
         
         var settings = $.extend({
             
