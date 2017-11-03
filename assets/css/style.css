@@ -12,6 +12,14 @@
     margin: 10px 1%;
     height: 200px;
 }
+.mfi-image-gallery {
+    margin: auto;
+}
+.mfi-image-gallery-item {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
 @media screen and ( max-width:992px ) {
     .mfi_image_item.grid {
         width: 48%;

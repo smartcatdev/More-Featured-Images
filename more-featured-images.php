@@ -1,8 +1,8 @@
 <?php
 /*
  * Plugin Name: More Featured Images
- * Plugin URI: https://smartcatdesign.net/downloads/more-featured-images/
- * Description: Select multiple images on all many post types
+ * Plugin URI: https://smartcatdesign.net/articles/add-extra-featured-images-wordpress-post-page-custom-post/
+ * Description: Add more featured images to your Posts, Pages and Custom Post Types. Bulk upload, Drag & drop re-order.
  * Version: 1.0.0
  * Author: Smartcat
  * Author URI: https://smartcatdesign.net
@@ -79,6 +79,11 @@ add_action( 'admin_enqueue_scripts', 'mfi\register_admin_scripts' );
 function register_scripts() {
 
 	wp_enqueue_style( 'mfi-style', asset( 'css/style.css' ), null, VERSION );
+        wp_enqueue_style( 'mfi-lightbox', asset( 'css/lightbox.css' ), null, VERSION );
+        
+        wp_enqueue_script( 'jquery-masonry' );
+	wp_enqueue_script( 'mfi_gallery_js', asset( 'js/gallery.js' ), array( 'jquery', 'jquery-masonry' ), VERSION );
+	wp_enqueue_script( 'mfi_lightbox_js', asset( 'js/lightbox.js' ), array( 'jquery' ), VERSION );
 
 }
 
